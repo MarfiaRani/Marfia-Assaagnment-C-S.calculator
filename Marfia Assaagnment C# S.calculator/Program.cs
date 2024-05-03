@@ -9,18 +9,17 @@ class Calculator
         while (continueCalculating)
         {
             Console.WriteLine("Choose calculator type:");
-            Console.WriteLine("1. Scientific Calculator");
-            Console.WriteLine("2. Normal Calculator");
-         
+            Console.WriteLine("1. Normal Calculator");
+            Console.WriteLine("2. Scientific Calculator");
             int choice = int.Parse(Console.ReadLine());
 
             switch (choice)
             {
                 case 1:
-                    ScientificCalculator();
+                    NormalCalculator();
                     break;
                 case 2:
-                    NormalCalculator();
+                    ScientificCalculator();
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -35,7 +34,48 @@ class Calculator
             }
         }
     }
-    // Scientific calculator
+
+    static void NormalCalculator()
+    {
+        Console.WriteLine("Enter first number:");
+        double num1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter second number:");
+        double num2 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Choose operation:");
+        Console.WriteLine("1. Addition");
+        Console.WriteLine("2. Subtraction");
+        Console.WriteLine("3. Multiplication");
+        Console.WriteLine("4. Division");
+        int operation = int.Parse(Console.ReadLine());
+
+        switch (operation)
+        {
+            case 1:
+                Console.WriteLine($"Result: {num1 + num2}");
+                break;
+            case 2:
+                Console.WriteLine($"Result: {num1 - num2}");
+                break;
+            case 3:
+                Console.WriteLine($"Result: {num1 * num2}");
+                break;
+            case 4:
+                if (num2 != 0)
+                {
+                    Console.WriteLine($"Result: {num1 / num2}");
+                }
+                else
+                {
+                    Console.WriteLine("Error: Division by zero.");
+                }
+                break;
+            default:
+                Console.WriteLine("Invalid operation. Please try again.");
+                break;
+        }
+    }
 
     static void ScientificCalculator()
     {
@@ -83,50 +123,6 @@ class Calculator
             default:
                 Console.WriteLine("Invalid operation. Please try again.");
                 break;
-        }
-
-        //normal calculator
-
-        static void NormalCalculator()
-        {
-            Console.WriteLine("Enter first number:");
-            double num1 = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter second number:");
-            double num2 = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Choose operation:");
-            Console.WriteLine("1. Addition");
-            Console.WriteLine("2. Subtraction");
-            Console.WriteLine("3. Multiplication");
-            Console.WriteLine("4. Division");
-            int operation = int.Parse(Console.ReadLine());
-
-            switch (operation)
-            {
-                case 1:
-                    Console.WriteLine($"Result: {num1 + num2}");
-                    break;
-                case 2:
-                    Console.WriteLine($"Result: {num1 - num2}");
-                    break;
-                case 3:
-                    Console.WriteLine($"Result: {num1 * num2}");
-                    break;
-                case 4:
-                    if (num2 != 0)
-                    {
-                        Console.WriteLine($"Result: {num1 / num2}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: Division by zero.");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Invalid operation. Please try again.");
-                    break;
-            }
         }
     }
 }
